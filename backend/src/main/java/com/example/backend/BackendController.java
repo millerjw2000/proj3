@@ -12,7 +12,7 @@ public class BackendController {
 
     @GetMapping("/test")
     public String test(){
-        System.out.println("test");
+        System.out.println("tedsdadsa");
         return new String("Test");
     }
 
