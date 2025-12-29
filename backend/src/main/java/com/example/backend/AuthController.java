@@ -1,7 +1,6 @@
 package com.example.backend;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,17 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.example.backend.Repo.UserRepository;
+import com.example.backend.Repo.*;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class BackendController {
+public class AuthController {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
     private JwtService jwtService;
 
-    public BackendController(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public AuthController(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
@@ -64,14 +63,6 @@ public class BackendController {
         System.out.println(request.getUsername() + " logged in successfully.");
         return response;
 
-    }
-    
-
-    @GetMapping("/fart")
-    public String regularTest(Authentication auth) {
-        System.out.println("regular test");
-        String userId = (String) auth.getPrincipal();
-        return userId + " accessed fart test";
-    }
+    } 
 
 }
