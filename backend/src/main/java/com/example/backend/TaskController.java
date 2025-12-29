@@ -28,13 +28,6 @@ public class TaskController {
 
     // TODO: endpoints for adding a task, retrieving tasks, changing task status, deleting a task //
 
-    @GetMapping("/fart")
-    public String regularTest(Authentication auth) {
-        System.out.println("regular test");
-        String userId = (String) auth.getPrincipal();
-        return userId + " accessed fart test";
-    }
-
     @PostMapping("/tasks/enter")
     public void enterTask(@RequestBody TaskRequest request, Authentication auth) {
         
