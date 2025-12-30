@@ -59,7 +59,6 @@ public class TaskController {
         
         String userId = (String) auth.getPrincipal();
         ArrayList<Task> tasks = taskRepository.getAll(userId);
-        System.out.println("hello!");
         return new TaskResponse(tasks);
 
     }

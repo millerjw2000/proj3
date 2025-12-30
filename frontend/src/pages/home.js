@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import { LightDarkButton } from "./lightdarkbutton"
 
 //TODO: make it so that password is starred out
 // more formatting for invalid fields, incorrect login info
@@ -54,6 +55,9 @@ export function Home() {
 
     return (
         <>
+            <div className='topbar'>
+                <LightDarkButton/>
+            </div>
             <div className="form">
                 Login
                 <form className="login" onSubmit={handleSubmit}>
@@ -68,7 +72,7 @@ export function Home() {
                     </div>
                     <Link to={'/register'}>Register here</Link>
                 </form>
-                {output}
+                <span className='error'>{output}</span>
             </div>
             
         </>

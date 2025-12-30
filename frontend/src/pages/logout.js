@@ -17,7 +17,7 @@ export function Logout() {
 
     return (
 
-        <button className='logout' onClick={logout}>Log out</button>
+        <button className='logout' onClick={logout}>Logout</button>
 
     )
 

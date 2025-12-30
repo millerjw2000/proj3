@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import { LightDarkButton } from "./lightdarkbutton"
 
 //TODO: maybe a confirm password input with validation to make sure they match
 // make sure password and username have a maximum length
@@ -9,12 +10,23 @@ export function Register() {
 
     const [name,setName] = useState("")
     const [password,setPassword] = useState("")
+    const [confirmPassword,setConfirmPassword] = useState("")
 
     const [output, setOutput] = useState("")
     const navigate = useNavigate()
 
     const handleSubmit =  async (e) => {
         e.preventDefault()
+
+        if (password !== confirmPassword) {
+            setOutput('Passwords must match!')
+            return null
+        }
+
+        if (name.length > 25) {
+            setOutput('Username must not exceed 25 chars')
+            return null
+        }
         
         const res = await axios.post('http://localhost:8080/auth/register',
             {
@@ -34,7 +46,7 @@ export function Register() {
         ).catch(err => {
 
                 if (err.response) {
-                    setOutput("Registration failure")
+                    setOutput("Username is taken")
                 }
             }
         )
@@ -48,8 +60,15 @@ export function Register() {
         setName(e.target.value)
     }
 
+    const handleConfirmPasswordChange = (e) => {
+        setConfirmPassword(e.target.value)
+    }
+
     return (
         <>
+            <div className='topbar'>
+                <LightDarkButton/>
+            </div>
             <div className="form">
                 Register
                 <form className="login" onSubmit={handleSubmit}>
@@ -58,13 +77,16 @@ export function Register() {
                     </div>
                     <div className="input">
                         <input type="text" value={password} placeholder="password" required onChange={handlePassChange}/>
-                    </div>     
+                    </div>    
+                    <div className="input">
+                        <input type="text" value={confirmPassword} placeholder="confirm password" required onChange={handleConfirmPasswordChange}/>
+                    </div>  
                     <div className="submit">
                         <input type="submit"/>
                     </div>
                     <Link to={'/'}>Login page</Link>
                 </form>
-                {output}
+                <span className='error'>{output}</span>
             </div>
             
         </>

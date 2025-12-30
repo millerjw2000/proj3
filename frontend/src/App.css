@@ -1,41 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 
 :root {
-    --primary-light: rgb(228, 237, 241);
-    --secondary-light: white;
-    --tertiary-light: rgb(202, 202, 202);
+    --font: 'Work Sans', sans-serif;
+}
+
+body.light {
+    --primary-color: rgb(228, 237, 241);
+    --secondary-color: white;
+    --tertiary-color: rgb(202, 202, 202);
+    --font-color: black;
+    --icon-color: black;
+    --topbar-color: white;
+}
+
+body.dark {
+    --primary-color: rgb(24, 23, 32);
+    --secondary-color: rgb(32, 32, 39);
+    --tertiary-color: rgb(92, 92, 92);
+    --font-color: white;
+    --icon-color: white;
+    --topbar-color: black;
 }
 
 html, body {
-    font-family: "Work Sans", sans-serif;
-    background-color: var(--primary-light);
+    color: var(--font-color);
+    font-family: var(--font);
+    background-color: var(--primary-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
+.topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.error {
+    color: rgb(235, 78, 78);
+}
+
+.logout {
+    background-color: var(--secondary-color);
+    border-style: none;
+    height: 2rem;
+    font-family: var(--font);
+    border-radius: .5rem;
+    color: var(--font-color);
+    margin: .5rem;
+}
+
+.logout:hover {
+    border: 1px solid var(--font-color);
+}
+
 .form {
-    background-color: var(--secondary-light);
+    background-color: var(--secondary-color);
     margin-top: 10rem;
     padding: 1rem;
     border-radius: 1rem;
     text-align: center;
-    border: 2px solid var(--tertiary-light);
+    border: 1px solid var(--tertiary-color);
+    margin-left: auto;
+    margin-right: auto;
+    width: 21rem;
+
 }
 
 .form input {
     width: 20rem;
     margin: .25rem;
     height: 2rem;
-    background-color: var(--primary-light);
+    background-color: var(--primary-color);
     border-style: none;
     border-radius: .25rem;
+    font-family: var(--font);
+    color: var(--font-color);
 }
 
-.form a {
+a {
     color: rgb(0, 153, 255);
 }
 
-.form a:hover {
-    color: rgb(21, 18, 202);
+a:hover {
+    color: rgb(81, 189, 231);
 }
 
 .form input {
@@ -43,10 +94,180 @@ html, body {
 }
 
 .submit input{
-    background-color: var(--tertiary-light);
+    background-color: var(--tertiary-color);
     border-style: none;
 }
 
 .submit input:hover {
-
+    border: 2px solid var(--font-color);
 }
+
+.task_enter_form {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: .5rem;
+    padding: .5rem;
+    width: 30rem;
+    margin: 1rem;
+    padding-right: 1rem;
+    margin-left: 9rem;
+}
+
+.task_enter_form h2 {
+    margin: 0;
+}
+
+.enter_desc input{
+    width: 100%;
+    height: 2rem;
+    font-family: var(--font);
+    color: var(--font-color);
+    background-color: var(--primary-color);
+    border: 1px solid var(--tertiary-color);
+    border-radius: .25rem;
+}
+
+.enter_due_time input {
+    margin-left: .5rem;
+    font-family: var(--font);
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    border: 1px solid var(--tertiary-color);
+}
+
+.submit_task input{
+    background-color: rgb(33, 196, 33);
+    border-style: none;
+    border-radius: .5rem;
+    width: 5rem;
+    height: 1.5rem;
+    color: black;
+    font-family: var(--font);
+    font-size: 1rem;
+    margin-top: .5rem;
+}
+
+.submit_task input:hover {
+    color: white;
+    border: 1px solid var(--font-color);
+}
+
+
+
+
+.tasks {
+    background-color: var(--secondary-color);
+    width: 100rem;
+    padding: 1rem;
+    border: 1px solid var(--tertiary-color);
+    border-radius: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.tasks h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tertiary-color);
+}
+
+.tasks h2 {
+    margin-top: 0;
+}
+
+.task_header {
+    width: 100%;
+}
+
+.task_section {
+    background-color: var(--primary-color);
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    width: 31%;
+}
+
+.task {
+    background-color: var(--secondary-color);
+    margin: .5rem;
+    padding: .5rem;
+    display: flex;
+    border-radius: .25rem;
+    font-size: .9rem;
+}
+
+.due {
+    color: rgb(131, 131, 131);
+}
+
+.desc {
+    width: 50%;
+    word-break: break-word;
+}
+
+.due {
+    width: 25%;
+}
+
+.buttons {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete {
+    height: 1.1rem;
+    color: var(--icon-color)
+}
+
+.delete:hover {
+    color: red;
+}
+
+.icon-hover {
+    display: none;
+}
+
+.icon-button:hover .icon-default {
+    display: none;
+}
+
+.icon-button:hover .icon-hover {
+    display: inline-block;
+}
+
+.icon-default {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-hover {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-button {
+    border-style: none;
+    background: none;
+    height: 1.1rem;
+    color: var(--icon-color);
+}
+
+.toggle_button {
+    background: none;
+    border-style: none;
+    
+}
+
+.toggle_icon {
+    color: var(--icon-color);
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+
+
+
