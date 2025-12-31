@@ -3,9 +3,6 @@ import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import { LightDarkButton } from "./lightdarkbutton"
 
-//TODO: maybe a confirm password input with validation to make sure they match
-// make sure password and username have a maximum length
-
 export function Register() {
 
     const [name,setName] = useState("")
@@ -17,6 +14,20 @@ export function Register() {
 
     const handleSubmit =  async (e) => {
         e.preventDefault()
+
+        for (let i=0; i < name.length; i++) {
+            if (name[i] === ' ') {
+                setOutput('Username cannot contain spaces')
+                return null
+            }
+        }
+
+        for (let i=0; i < password.length; i++) {
+            if (password[i] === ' ') {
+                setOutput('Password cannot contain spaces')
+                return null
+            }
+        }
 
         if (password !== confirmPassword) {
             setOutput('Passwords must match!')
@@ -82,7 +93,7 @@ export function Register() {
                         <input type="text" value={confirmPassword} placeholder="confirm password" required onChange={handleConfirmPasswordChange}/>
                     </div>  
                     <div className="submit">
-                        <input type="submit"/>
+                        <input type="submit" value='Register'/>
                     </div>
                     <Link to={'/'}>Login page</Link>
                 </form>

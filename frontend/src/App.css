@@ -1,35 +1,76 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"); 
 
 
 :root {
     --font: 'Work Sans', sans-serif;
 }
 
+
+
 body.light {
     --primary-color: rgb(228, 237, 241);
     --secondary-color: white;
     --tertiary-color: rgb(202, 202, 202);
+    --quaternary-color: rgb(134, 134, 134);
     --font-color: black;
     --icon-color: black;
     --topbar-color: white;
+    --footer-color: white;
 }
 
 body.dark {
     --primary-color: rgb(24, 23, 32);
     --secondary-color: rgb(32, 32, 39);
     --tertiary-color: rgb(92, 92, 92);
+    --quaternary-color: rgb(134, 134, 134);
     --font-color: white;
     --icon-color: white;
     --topbar-color: black;
+    --footer-color: black;
 }
 
 html, body {
     color: var(--font-color);
     font-family: var(--font);
     background-color: var(--primary-color);
+    height: 100%;
+    margin: 0;
+}
+
+.header {
+    background-color: var(--topbar-color);
+    height: 2rem;
+    border-bottom: 1px solid var(--tertiary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+.content {
+    flex: 1;
+    margin: 0;
+}
+
+.page {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+footer {
+    background-color: var(--footer-color);
+    color: var(--font-color);
+    width: 100%;
+    text-align: center;
+    height: 10rem;
+    padding-top: 1rem;
+
 }
 
 .topbar {
@@ -133,15 +174,16 @@ a:hover {
     background-color: var(--primary-color);
     color: var(--font-color);
     border: 1px solid var(--tertiary-color);
+    margin-bottom: .5rem;
 }
 
 .submit_task input{
-    background-color: rgb(33, 196, 33);
+    background-color: #238636;
     border-style: none;
     border-radius: .5rem;
     width: 5rem;
     height: 1.5rem;
-    color: black;
+    color: white;
     font-family: var(--font);
     font-size: 1rem;
     margin-top: .5rem;
@@ -152,7 +194,24 @@ a:hover {
     border: 1px solid var(--font-color);
 }
 
+.title_with_icon {
+    display: flex;
+    align-items: center;
+    color: var(--quaternary-color);
+    border-bottom: 1px solid var(--quaternary-color);
+    margin-bottom: 1rem;
+}
 
+.title_with_icon h1 {
+    padding-right: .5rem;
+}
+
+.title_with_icon h2 {
+    padding-right: .5rem;
+    color: var(--font-color);
+    margin-bottom: .5rem;
+    
+}
 
 
 .tasks {
@@ -170,7 +229,7 @@ a:hover {
 .tasks h1 {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--tertiary-color);
+    color: var(--quaternary-color);
 }
 
 .tasks h2 {
@@ -205,6 +264,7 @@ a:hover {
 .desc {
     width: 50%;
     word-break: break-word;
+    margin-right:.25rem;
 }
 
 .due {
@@ -267,7 +327,9 @@ a:hover {
     height: 1.5rem;
 }
 
-
+.no_logon {
+    text-align: center;
+}
 
 
 

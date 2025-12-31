@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom"
 import { Logout } from './logout'
 import { LightDarkButton } from "./lightdarkbutton"
 
-import { GrCheckbox, GrCheckboxSelected, GrClose } from 'react-icons/gr'
+import { GrCheckbox, GrCheckboxSelected, GrClose, GrAlert, GrAlarm, GrCheckmark, GrEdit } from 'react-icons/gr'
 
 export function User() {
 
@@ -161,7 +161,7 @@ export function User() {
                         <Logout/>
                     </div>
                     <div className='task_enter_form'>
-                        <h2>Create Task</h2>
+                        <div className='title_with_icon'><h2>Create Task</h2><GrEdit/></div>
                         <form onSubmit={handleSubmit}>
                             <div className='enter_due_time'>
                                 Date
@@ -172,7 +172,7 @@ export function User() {
                                 <input type='text' value={enter_desc} required onChange={handleDescChange}></input>
                             </div>
                             <div className='submit_task'>
-                                <input type='submit'></input>
+                                <input type='submit' value='Create'></input>
                             </div>
                         </form>
                     </div>
@@ -183,7 +183,7 @@ export function User() {
                             <h2>Your Tasks</h2>
                         </div>
                         <div className='task_section'>
-                            <h1>Upcoming Tasks</h1>
+                            <div className='title_with_icon'><h1>Upcoming Tasks</h1><GrAlarm/></div>
                             {tasks.upcoming.map((task,idx) => (
 
                                 <div className='task'>
@@ -201,7 +201,7 @@ export function User() {
                             ))}
                         </div>
                         <div className='task_section'>
-                            <h1>Overdue Tasks</h1>
+                            <div className='title_with_icon'><h1>Overdue</h1><GrAlert/></div>
                             {tasks.overdue.map((task,idx) => (
 
                                 <div className='task'>
@@ -219,7 +219,7 @@ export function User() {
                             ))}
                         </div>
                         <div className='task_section'>
-                            <h1>Completed Tasks</h1>
+                            <div className='title_with_icon'><h1>Completed</h1><GrCheckmark/></div>
                             {tasks.completed.map((task,idx) => (
 
                                 <div className='task'>
@@ -243,7 +243,7 @@ export function User() {
                     <div className='topbar'>
                         <LightDarkButton/>
                     </div>
-                    <div>
+                    <div className='no_logon'>
                         <p>You are not logged in yet!</p>
                         <p><Link to={'/'}>Login page</Link></p>
                     </div>

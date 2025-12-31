@@ -3,8 +3,6 @@ import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import { LightDarkButton } from "./lightdarkbutton"
 
-//TODO: make it so that password is starred out
-// more formatting for invalid fields, incorrect login info
 
 export function Home() {
 
@@ -18,6 +16,20 @@ export function Home() {
     const handleSubmit =  async (e) => {
         
         e.preventDefault()
+
+        for (let i=0; i < password.length; i++) {
+            if (password[i] === ' ') {
+                setOutput('Password cannot contain spaces')
+                return null
+            }
+        }
+
+        for (let i=0; i < name.length; i++) {
+            if (name[i] === ' ') {
+                setOutput('Username cannot contain spaces')
+                return null
+            }
+        }
         
         
         const res = await axios.post('http://localhost:8080/auth/login',
@@ -65,10 +77,11 @@ export function Home() {
                         <input type="text" value={name} placeholder="username"  required onChange={handleUsernameChange}/>
                     </div>
                     <div className="input">
-                        <input type="text" value={password} placeholder="password" required onChange={handlePassChange}/>
+                        <input type="password" value={password} placeholder="password" required onChange={handlePassChange}/>
                     </div>     
                     <div className="submit">
-                        <input type="submit"/>
+                        <input type="submit" value='Login'/>
+
                     </div>
                     <Link to={'/register'}>Register here</Link>
                 </form>

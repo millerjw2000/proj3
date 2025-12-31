@@ -56,7 +56,7 @@ public class TaskRepository {
     }
 
     public ArrayList<Task> getAll(String userId) {
-        String query = "SELECT * FROM " + tableName + " WHERE userId = ?";
+        String query = "SELECT * FROM " + tableName + " WHERE userId = ? ORDER by dueTime ASC";
         ArrayList<Task> tasks = new ArrayList<Task>(template.query(query,mapper,userId));
         return tasks;
     }
