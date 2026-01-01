@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.backend.Repo.TaskRepository;
 import com.example.backend.Model.Task;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://frontend-alb-127162849.us-east-1.elb.amazonaws.com"})
 @RestController
 public class TaskController {
 

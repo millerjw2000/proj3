@@ -1,7 +1,4 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS tasks;
-
-CREATE table users (
+CREATE table IF NOT EXISTS users (
 
     id VARCHAR(25) PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
@@ -9,7 +6,7 @@ CREATE table users (
 
 );
 
-CREATE table tasks (
+CREATE table IF NOT EXISTS tasks (
 
     id VARCHAR(25) PRIMARY KEY,
     userId VARCHAR(25),

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import { LightDarkButton } from "./lightdarkbutton"
+import { API_BASE_URL } from "../config"
 
 export function Register() {
 
@@ -39,7 +40,7 @@ export function Register() {
             return null
         }
         
-        const res = await axios.post('http://localhost:8080/auth/register',
+        const res = await axios.post(`http://${API_BASE_URL}/auth/register`,
             {
 
                 username: name,

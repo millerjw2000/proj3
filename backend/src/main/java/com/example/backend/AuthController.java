@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.backend.Repo.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://frontend-alb-127162849.us-east-1.elb.amazonaws.com"})
 @RestController
 public class AuthController {
 
@@ -62,6 +62,11 @@ public class AuthController {
         System.out.println(request.getUsername() + " logged in successfully.");
         return response;
 
-    } 
+    }
+
+    @GetMapping("/healthCheck")
+    public String healthCheck() {
+        return "OK";
+    }
 
 }

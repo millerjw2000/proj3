@@ -12,7 +12,7 @@ import java.util.Date;
 public class JwtService {
 
     private final Key key =
-        Keys.hmacShaKeyFor("my-super-secret-key-my-super-secret-key".getBytes());
+        Keys.hmacShaKeyFor("kGvSdMfg5zKyAbedcDlb7JmniZV8hwC3zFtKyG4pTjXlkstbRhQd00IM0cuJulLW".getBytes());
 
     public String generateToken(String username, String userId) {
         return Jwts.builder()

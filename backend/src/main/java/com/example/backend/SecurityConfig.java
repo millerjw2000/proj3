@@ -29,6 +29,7 @@ public class SecurityConfig {
             .cors(cors -> {})
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll() 
+                .requestMatchers("/healthCheck").permitAll()
                 .anyRequest().authenticated()           
             )
             .addFilterBefore(new JwtAuthFilter(jwtService),
