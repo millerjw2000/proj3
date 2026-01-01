@@ -1,4 +1,4 @@
-# proj3
+# Task Tracker
 
 This project is a basic Task tracker that lets the user create, delete, and change the status of tasks. 
 The backend is built with spring-boot and the frontend is built with react. 
